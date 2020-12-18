@@ -5,7 +5,7 @@ function generatePassword() {
   //prompt option to select character length
   var input = (prompt("Please select the length of your password? Must be between 8 and 128 characters in length."));
   var length = parseInt(input);
-  
+
   if (length > 7 && length < 129) {
     //alert option to select special characters
     var special = (confirm("Do you want to use special characters? Ok for yes, cancel for no."));
@@ -39,22 +39,16 @@ function generatePassword() {
       count = count + 1;
       //tell me what my count is     
       console.log("Current count var: " + count);
-      
-      //figure out how many of each string should go in the array ************
-      var randomCount = length / count;
-      console.log("randomCount var " + randomCount);
 
       //push the string into the array
       passwordArr.push(string);
-      
 
-      //*******I want to use the randomCount and pull that many out of the string and replace first push
-      
-      passwordArr.splice(count - 1, 1, string.charAt());
+      //Use the randomCount and pull that many out of the string and replace first push
+      passwordArr.splice(count - 1, 1, string.charAt(Math.floor(Math.random() * (string.length + 1))));
       console.log("Array with splice " + passwordArr);
 
     }
-    
+
     //determine if type was selected and run addMe if it was
     if (count < length && special === true) {
       addMe(strSpecial);
@@ -72,13 +66,13 @@ function generatePassword() {
 
   }
 
-  
+
   //take all accepted info and turn it into a password
   //******select count of each array index at random and concat array into string
-  console.log ("--------- end of function -------");
-  
+  console.log("--------- end of function -------");
+
   return passwordArr.join("");
- 
+
 
 }
 //Put that in the webpage now
@@ -86,7 +80,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-  document.getElementById("textarea").innerHTML=password;
+  document.getElementById("password").innerHTML = password;
 }
 
 // Add event listener to generate button
