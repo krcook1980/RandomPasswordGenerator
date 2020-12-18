@@ -30,24 +30,18 @@ function generatePassword() {
   var count = 0;
   var passwordArr = [];
 
-  console.log("length var " + length);
-
   //length chosen divided by true
-  for (var i = count; i < length; i++) {
+  function addMe(string) {
+    count = count + 1;
+   
+    //push the string into the array
+    passwordArr.push(string);
 
-    function addMe(string) {
-      count = count + 1;
-      //tell me what my count is     
-      console.log("Current count var: " + count);
-
-      //push the string into the array
-      passwordArr.push(string);
-
-      //Use the randomCount and pull that many out of the string and replace first push
-      passwordArr.splice(count - 1, 1, string.charAt(Math.floor(Math.random() * (string.length + 1))));
-      console.log("Array with splice " + passwordArr);
-
+    //Use the random to replace first push
+    passwordArr.splice(count - 1, 1, string.charAt(Math.floor(Math.random() * (string.length))));
     }
+
+  for (var i = count; i < length; i++) {
 
     //determine if type was selected and run addMe if it was
     if (count < length && special === true) {
@@ -66,13 +60,8 @@ function generatePassword() {
 
   }
 
-
-  //take all accepted info and turn it into a password
-  //******select count of each array index at random and concat array into string
-  console.log("--------- end of function -------");
-
-  return passwordArr.join("");
-
+  //take all accepted info and concat into a password
+    return passwordArr.join("");
 
 }
 //Put that in the webpage now
