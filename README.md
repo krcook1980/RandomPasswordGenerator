@@ -13,6 +13,9 @@ Take existing HTML and js files and add javascript to create a password based on
 - Apply random generation from string to match length selected by user
 - Add password to webpage when generated
 
+## Deployed page
+[RandomPasswordGenerator](https://krcook1980.github.io/RandomPasswordGenerator/)
+
 ## Resources
 - [W3 Schools](https://www.w3schools.com/)
 - [Stackoverflow](https://stackoverflow.com/)
